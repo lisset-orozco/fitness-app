@@ -2,10 +2,10 @@ import React from 'react';
 
 import Card from '../components/Card';
 
-const ExcerciseList = (props) => (
+const ExerciseList = ({Data}) => (
   <div>
     {
-      props.Data.map((exercise, index) => (
+      Data.map((exercise, index) => (
         <Card
           title={exercise.title}
           description={exercise.description}
@@ -20,4 +20,4 @@ const ExcerciseList = (props) => (
   </div>
 )
 
-export default ExcerciseList;
+export default ExerciseList;
