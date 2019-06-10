@@ -8,11 +8,7 @@ import Add from '../components/Add';
 import Data from '../faker/exercises.json'
 
 class Exercises extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { Data };
-  }
+  state = { Data };
 
   render = () => (
     <div>
