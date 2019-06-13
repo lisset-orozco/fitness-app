@@ -45,11 +45,11 @@ class Exercises extends React.Component {
       ?
       <Loading />
       :
-      <div>
+      <>
         <Welcome username='Alexandra' />
         <ExercisesList Data={this.state.Data}/>
         <Add />
-      </div>
+      </>
   )
 }
 

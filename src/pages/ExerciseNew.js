@@ -3,6 +3,8 @@ import React from 'react';
 import '../components/styles/ExerciseNew.css';
 import ExerciseForm from '../components/ExerciseForm';
 import Card from '../components/Card';
+import FatalError from '../pages/500';
+import Loading from '../components/Loading';
 
 class ExerciseNew extends React.Component {
   state = {
@@ -12,7 +14,9 @@ class ExerciseNew extends React.Component {
       img: '',
       leftColor: '',
       rightColor: ''
-    }
+    },
+    loading: false,
+    hasError: false
   }
 
   handleChange = e => {
@@ -25,6 +29,10 @@ class ExerciseNew extends React.Component {
   }
 
   handleSubmit = async (e) => {
+    this.setState({
+      loading: true
+    })
+
     e.preventDefault()
     try {
       let config = {
@@ -39,15 +47,27 @@ class ExerciseNew extends React.Component {
       let res = await fetch('http://localhost:8000/api/exercises', config);
       let json = await res.json();
 
-      console.log(json);
+      this.setState({
+        loading: false
+      })
+
+      this.props.history.push('/exercise');
     } catch (error) {
-      
+      this.setState({
+        loading: false
+      })
     }
   }
 
-
   render(){
+    if(this.state.error)
+      return <FatalError />
+
     return (
+      this.state.loading
+      ?
+      <Loading />
+      :
       <div className="ExerciseNew_Lateral_Spaces row">
         <div className="col-sm ExerciseNew_Card_Space">
           <Card {...this.state.form} />
