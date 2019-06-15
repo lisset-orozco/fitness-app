@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import '../components/styles/ExerciseNew.css';
 import ExerciseNew from './ExerciseNew';
 import FatalError from '../pages/500';
 
-const ExerciseNewContainer = (props) => {
-  const state = {
+class ExerciseNewContainer extends React.Component {
+  state = {
     form: {
       title: '',
       description: '',
@@ -17,23 +17,19 @@ const ExerciseNewContainer = (props) => {
     hasError: false
   }
 
-  const [info, setInfo] = useState({...state})
-
-  const handleChange = e => (
-    setInfo({
-      ...info,
+  handleChange = e => {
+    this.setState({
       form: {
-        ...info.form,
+        ...this.state.form,
         [e.target.name]: e.target.value
       } 
     })
-  )
+  }
 
-  const handleSubmit = async (e) => {
-    setInfo({
-      ...info,
+  handleSubmit = async (e) => {
+    this.setState({
       loading: true
-    });
+    })
 
     e.preventDefault()
     try {
@@ -42,39 +38,35 @@ const ExerciseNewContainer = (props) => {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(info.form)
-    }
+        },
+        body: JSON.stringify(this.state.form)
+      }
 
       let res = await fetch('http://localhost:8000/api/exercises', config);
       let json = await res.json();
 
-      setInfo({
-        ...info,
+      this.setState({
         loading: false
-      });
+      })
 
-      props.history.push('/exercise');
+      this.props.history.push('/exercise');
     } catch (error) {
-      setInfo({
-        ...info,
-        loading: false,
-        hasError: true
-      });
+      this.setState({
+        loading: false
+      })
     }
   }
 
-  return(
-    info.hasError
-    ?
-      <FatalError />
-    :
-      <ExerciseNew
-        onChange={handleChange}
-        onSubmit={handleSubmit}
-        form={info.form} 
-      />
-  )
+  render(){
+    if(this.state.error)
+      return <FatalError />
+
+    return <ExerciseNew
+              onChange={this.handleChange}
+              onSubmit={this.handleSubmit}
+              form={this.state.form} 
+            />
+  }
 }
 
 export default ExerciseNewContainer;

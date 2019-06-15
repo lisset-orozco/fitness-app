@@ -1,51 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Loading from '../components/Loading';
 import FatalError from '../pages/500';
 import Exercises from './Exercises';
 
 // fake data
-import Data from '../faker/exercises.json'
+// import Data from '../faker/exercises.json'
 
-class ExercisesContainer extends React.Component {
-  state = { Data: [], 
-            hasError: false,
-            loading: true };
+const ExercisesContainer = () => {
+  const [Data, setData] = useState([]);
+  const [hasError, setError] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  fetchExercises = async () => {
-    let res = await fetch('http://localhost:8000/api/exercises');
-    let data = await res.json();
+  const fetchExercises = async () => {
+    await fetch('http://localhost:8000/api/exercises')
+          .then( async(res) => {
+            setData(await res.json());
+            setLoading(false);
+            console.log(res);
+          })
+          .catch( error => {
+            setError(true);
+            setLoading(false);
+          });
+  }           
 
-    this.setState({
-      Data: data,
-      loading: false
-    })
-    console.log(data)
-  }
+  useEffect(() => {
+    fetchExercises();
+  }, []);
 
-  async componentDidMount() {
-    try {
-      await this.fetchExercises()
-    } catch (e) {
-      this.setState({ 
-        hasError: true,
-        loading: false
-      });
-    }
-  }
-
-  render = () => (
-    this.state.hasError 
+  return(
+    hasError 
     ?
     <FatalError/>
     :
-    this.state.loading
+    loading
       ?
       <Loading />
       :
-      <>
-        <Exercises Data={this.state.Data}/>
-      </>
+        <Exercises Data={Data}/>
   )
 }
 
