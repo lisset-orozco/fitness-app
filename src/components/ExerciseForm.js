@@ -41,22 +41,22 @@ class ExerciseForm extends React.Component {
           <div className="form-row">
             <div className="col">
               <input 
-                type="text" 
+                type="color" 
                 className="form-control" 
                 placeholder="leftColor" 
                 name="leftColor"
                 onChange={onChange}
-                value={form.leftColor}
+                value={form.leftColor || '#56CCF2'}
               />
             </div>
             <div className="col">
               <input 
-                type="text" 
+                type="color" 
                 className="form-control"
                 placeholder="rightColor" 
                 name="rightColor"
                 onChange={onChange}
-                value={form.rightColor}
+                value={form.rightColor || '#2F80ED'}
               />    
             </div>
           </div>
