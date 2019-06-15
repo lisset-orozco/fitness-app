@@ -42,12 +42,12 @@ const ExerciseNewContainer = (props) => {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(info.form)
-    }
+        },
+        body: JSON.stringify(info.form)
+      }
 
-      let res = await fetch('http://localhost:8000/api/exercises', config);
-      let json = await res.json();
+      await fetch('http://localhost:8000/api/exercises', config);
+      // let json = await res.json();
 
       setInfo({
         ...info,
