@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import '../components/styles/ExerciseNew.css';
 import ExerciseNew from './ExerciseNew';
 import FatalError from '../pages/500';
+import url from '../config';
 
 const ExerciseNewContainer = (props) => {
   const state = {
@@ -46,7 +47,7 @@ const ExerciseNewContainer = (props) => {
         body: JSON.stringify(info.form)
       }
 
-      await fetch('http://localhost:8000/api/exercises', config);
+      await fetch(`${url}/exercises`, config);
       // let json = await res.json();
 
       setInfo({
