@@ -10,10 +10,9 @@ const useFetch = (url) => {
     const fetchResource = async () => {
       await axios.get(url)
             .then( async(res) => {
-              console.log(res);
               setData(await res.data);
               setLoading(false);
-              console.log(res);
+              //console.log(Data);
             })
             .catch( error => {
               console.log(error);
@@ -27,4 +26,4 @@ const useFetch = (url) => {
   return { Data, hasError, loading }
 };
 
-export default useFetch;
+export { useFetch };

@@ -3,7 +3,7 @@ import React from 'react';
 import Loading from '../components/Loading';
 import FatalError from '../pages/500';
 import Exercises from './Exercises';
-import useFetch from '../hooks/useFetch';
+import { useFetch } from '../hooks/useFetch';
 import url from '../config';
 
 // fake data

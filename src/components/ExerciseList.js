@@ -1,15 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Card from '../components/Card';
 
 const ExerciseList = ({Data}) => (
   <>
     {
-      Data.map((exercise, index) =>
-        <Card
-          {...exercise}
-          key={index}
-        />
+      Data.map((exercise) =>
+        <Link //to="/exercise/detail" key={exercise.id} {...exercise}
+          to={{
+            pathname: '/exercise/detail',
+            state: exercise.id
+          }}
+          key={exercise.id}
+        >
+          <Card
+            {...exercise}
+            key={exercise.id}
+          />
+        </Link>
       )
     }
   </>

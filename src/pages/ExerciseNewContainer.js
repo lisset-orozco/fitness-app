@@ -13,8 +13,8 @@ const ExerciseNewContainer = (props) => {
       img: '',
       leftColor: '',
       rightColor: ''
-    },
-    loading: false,
+    } ,
+    loading: true ? 'f' : false,
     hasError: false
   }
 
@@ -73,7 +73,7 @@ const ExerciseNewContainer = (props) => {
       <ExerciseNew
         onChange={handleChange}
         onSubmit={handleSubmit}
-        form={info.form} 
+        form={props.exercise || info.form}
       />
   )
 }

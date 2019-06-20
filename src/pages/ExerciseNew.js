@@ -3,7 +3,7 @@ import React from 'react';
 import Card from '../components/Card';
 import ExerciseForm from '../components/ExerciseForm';
 
-const ExerciseNew = ({onChange, onSubmit, form}) => (
+const ExerciseNew = ({ onChange, onSubmit, form }) => (
   <div className="ExerciseNew_Lateral_Spaces row">
     <div className="col-sm ExerciseNew_Card_Space">
       <Card {...form} />
