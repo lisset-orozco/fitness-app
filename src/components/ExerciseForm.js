@@ -1,69 +1,71 @@
 import React from 'react';
 
 const ExerciseForm = ({ onChange, onSubmit, form }) => (
-  <div className="container">
-    <form onSubmit={onSubmit} >
-      <div className="form-group">
-        <input 
-          type="text" 
-          className="form-control" 
-          placeholder="title" 
-          name="title"
-          onChange={onChange}
-          value={form.title}
-        />
-      </div>
-      <div className="form-group">
-        <input 
-          type="text" 
-          className="form-control" 
-          placeholder="description" 
-          name="description"
-          onChange={onChange}
-          value={form.description}
-        />
-      </div>
-      <div className="form-group">
-        <input 
-          type="text" 
-          className="form-control" 
-          placeholder="img" 
-          name="img"
-          onChange={onChange}
-          value={form.img}
-        />
-      </div>
-      <div className="form-row">
-        <div className="col">
+  <>
+    <div className="container">
+      <form onSubmit={onSubmit} >
+        <div className="form-group">
           <input 
-            type="color" 
+            type="text" 
             className="form-control" 
-            placeholder="leftColor" 
-            name="leftColor"
+            placeholder="title" 
+            name="title"
             onChange={onChange}
-            value={form.leftColor || '#56CCF2'}
+            value={form.title}
           />
         </div>
-        <div className="col">
+        <div className="form-group">
           <input 
-            type="color" 
-            className="form-control"
-            placeholder="rightColor" 
-            name="rightColor"
+            type="text" 
+            className="form-control" 
+            placeholder="description" 
+            name="description"
             onChange={onChange}
-            value={form.rightColor || '#2F80ED'}
-          />    
+            value={form.description}
+          />
         </div>
-      </div>
-      <br/>
-      <button 
-        type="submit" 
-        className="btn btn-primary float-right"
-      >
-        Submit
-      </button>
-    </form>
-  </div>
+        <div className="form-group">
+          <input 
+            type="text" 
+            className="form-control" 
+            placeholder="img" 
+            name="img"
+            onChange={onChange}
+            value={form.img}
+          />
+        </div>
+        <div className="form-row">
+          <div className="col">
+            <input 
+              type="color" 
+              className="form-control" 
+              placeholder="leftColor" 
+              name="leftColor"
+              onChange={onChange}
+              value={form.leftColor || '#56CCF2'}
+            />
+          </div>
+          <div className="col">
+            <input 
+              type="color" 
+              className="form-control"
+              placeholder="rightColor" 
+              name="rightColor"
+              onChange={onChange}
+              value={form.rightColor || '#2F80ED'}
+            />    
+          </div>
+        </div>
+        <br/>
+        <button 
+          type="submit" 
+          className="btn btn-primary float-right"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </>
 );
 
 export default ExerciseForm;

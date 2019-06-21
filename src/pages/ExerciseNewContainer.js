@@ -4,6 +4,7 @@ import '../components/styles/ExerciseNew.css';
 import ExerciseNew from './ExerciseNew';
 import FatalError from '../pages/500';
 import url from '../config';
+import axios from 'axios'
 
 const ExerciseNewContainer = (props) => {
   const state = {
@@ -37,32 +38,21 @@ const ExerciseNewContainer = (props) => {
     });
 
     e.preventDefault()
-    try {
-      let config = {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(info.form)
-      }
-
-      await fetch(`${url}/exercises`, config);
-      // let json = await res.json();
-
+    await axios.post(`${url}/exercises`, {...info.form})
+    .then( (res) => {
       setInfo({
         ...info,
         loading: false
       });
-
       props.history.push('/exercise');
-    } catch (error) {
+    })
+    .catch( error => {
       setInfo({
         ...info,
         loading: false,
         hasError: true
       });
-    }
+    });
   }
 
   return(
