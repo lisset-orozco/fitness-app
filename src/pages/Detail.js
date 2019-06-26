@@ -15,9 +15,10 @@ const Detail = (props) => {
       <FatalError />
     :
     <>
-      <div className="col-sm ExerciseNew_Card_Space">
+      <div className="ExerciseNew_Card_Space">
         <Card {...exercise} />
       </div>
+      <br/>
       <div style={{display: 'flex', justifyContent: 'center'}}>
         <Buttons id={props.location.exerciseId} />
       </div>
