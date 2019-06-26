@@ -3,14 +3,10 @@ import React from 'react';
 import Loading from '../components/Loading';
 import FatalError from '../pages/500';
 import Exercises from './Exercises';
-import { useFetch } from '../hooks/useFetch';
-import url from '../config';
-
-// fake data
-// import Data from '../faker/exercises.json'
+import httpClient from '../services/AxiosClient'
 
 const ExercisesContainer = () => {
-  const { Data, loading, hasError } = useFetch(`${url}/exercises`);
+  const { Data, loading, hasError } = httpClient.getAll();
 
   return(
     hasError 

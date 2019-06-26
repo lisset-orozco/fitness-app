@@ -3,7 +3,10 @@ import './styles/Card.css';
 import emptyImg from '../images/empty.png';
 import circlesImg from '../images/circles.png'; 
 
-const Card = ({ title, description, img, leftColor, rightColor} ) => (
+const Card = (props) => {
+  const { title, description, img, leftColor, rightColor} = (props.exercise || props)
+
+  return(
   <div className="card mx-auto Fitness-Card"
     style={{
       backgroundImage: `url(${circlesImg}), linear-gradient(to right, ${leftColor || '#56CCF2'}  , ${rightColor || '#2F80ED'}) `
@@ -21,6 +24,6 @@ const Card = ({ title, description, img, leftColor, rightColor} ) => (
       </div>
     </div>
   </div>
-);
+);}
 
 export default Card;

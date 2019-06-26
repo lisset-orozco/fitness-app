@@ -4,18 +4,22 @@ import '../components/styles/ExerciseNew.css';
 import ExerciseNew from './ExerciseNew';
 import FatalError from '../pages/500';
 import url from '../config';
-import axios from 'axios'
+import httpClient from '../services/AxiosClient'
 
 const ExerciseNewContainer = (props) => {
   const state = {
-    form: {
-      title: '',
-      description: '',
-      img: '',
-      leftColor: '',
-      rightColor: ''
-    } ,
-    loading: true ? 'f' : false,
+    form: 
+      { ...props.exercise ? 
+        {...props.exercise} : 
+        {
+          title: '',
+          description: '',
+          img: '',
+          leftColor: '',
+          rightColor: ''
+          }
+      } ,
+    loading: false,
     hasError: false
   }
 
@@ -38,21 +42,32 @@ const ExerciseNewContainer = (props) => {
     });
 
     e.preventDefault()
-    await axios.post(`${url}/exercises`, {...info.form})
-    .then( (res) => {
-      setInfo({
-        ...info,
-        loading: false
-      });
-      props.history.push('/exercise');
-    })
-    .catch( error => {
-      setInfo({
-        ...info,
-        loading: false,
-        hasError: true
-      });
-    });
+    {
+      (info.form.id) ? 
+        httpClient.put(info.form.id, {...info.form})
+                  .then(res => {
+                    if (res.success) {
+                      setInfo({
+                          ...info,
+                          loading: false
+                      })
+                      
+                      console.log(window.location)
+                      window.location = '/exercise'
+                    }
+                  })
+      :
+        httpClient.post(`${url}/exercises`, {...info.form})
+                  .then(res => {
+                    if (res.success) {
+                      setInfo({
+                          ...info,
+                          loading: false
+                      });
+                      props.history.push('/exercise');
+                    }
+                  })
+    }
   }
 
   return(
@@ -63,7 +78,7 @@ const ExerciseNewContainer = (props) => {
       <ExerciseNew
         onChange={handleChange}
         onSubmit={handleSubmit}
-        form={props.exercise || info.form}
+        form={info.form}
       />
   )
 }
