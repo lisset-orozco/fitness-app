@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import ExercisesContainer from '../pages/ExercisesContainer';
 import ExerciseNewContainer from '../pages/ExerciseNewContainer';
@@ -10,6 +10,7 @@ import ExerciseEdit from './ExerciseEdit'
 const App = () => (
   <BrowserRouter>
     <Switch>
+      <Route exact path="/" render={() => (<Redirect to="/exercise" />)} />
       <Route exact path='/exercise' component={ExercisesContainer} />
       <Route path='/exercise/new' component={ExerciseNewContainer} />
       <Route path='/exercise/edit' component={ExerciseEdit} />

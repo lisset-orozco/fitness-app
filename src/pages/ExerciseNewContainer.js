@@ -42,32 +42,32 @@ const ExerciseNewContainer = (props) => {
     });
 
     e.preventDefault()
-    {
-      (info.form.id) ? 
-        httpClient.put(info.form.id, {...info.form})
-                  .then(res => {
-                    if (res.success) {
-                      setInfo({
-                          ...info,
-                          loading: false
-                      })
-                      
-                      console.log(window.location)
-                      window.location = '/exercise'
-                    }
-                  })
-      :
-        httpClient.post(`${url}/exercises`, {...info.form})
-                  .then(res => {
-                    if (res.success) {
-                      setInfo({
-                          ...info,
-                          loading: false
-                      });
-                      props.history.push('/exercise');
-                    }
-                  })
-    }
+
+    info.form.id
+    ?
+      httpClient.put(info.form.id, {...info.form})
+                .then(res => {
+                  if (res.success) {
+                    setInfo({
+                        ...info,
+                        loading: false
+                    })
+                    
+                    console.log(window.location)
+                    window.location = '/exercise'
+                  }
+                })
+    :
+      httpClient.post(`${url}/exercises`, {...info.form})
+                .then(res => {
+                  if (res.success) {
+                    setInfo({
+                        ...info,
+                        loading: false
+                    });
+                    props.history.push('/exercise');
+                  }
+                })
   }
 
   return(

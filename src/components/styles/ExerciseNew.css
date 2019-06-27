@@ -7,4 +7,16 @@
 }
 .ExerciseNew_Form_Space{
   margin-top: 140px;
+  padding-top: 4%;
+}
+
+.ExerciseNew_Margin {
+  margin-top: 140px;
+  max-width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.ExerciseNew_Card{
+  padding-bottom: 4%;
 }

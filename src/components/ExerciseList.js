@@ -16,13 +16,12 @@ const ExerciseList = ({Data}) => (
             }}
             key={exercise.id}
           >
-            <Card
-              {...exercise}
-              key={exercise.id}
-            />
-
+              <Card
+                {...exercise}
+                key={exercise.id}
+              />
           </Link>
-        </Col>
+        </Col> 
       )
     }
   </>

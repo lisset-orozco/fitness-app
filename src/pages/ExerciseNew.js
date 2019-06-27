@@ -4,11 +4,12 @@ import Card from '../components/Card';
 import ExerciseForm from '../components/ExerciseForm';
 
 const ExerciseNew = ({ onChange, onSubmit, form }) => (
-  <div className="ExerciseNew_Lateral_Spaces row">
-    <div className="col-sm ExerciseNew_Card_Space">
+  <div className="ExerciseNew_Margin">
+    <div className="ExerciseNew_Card">
       <Card {...form} />
     </div>
-    <div className="col-sm ExerciseNew_Form_Space">
+
+    <div className="">
       <ExerciseForm 
         onChange={onChange}
         onSubmit={onSubmit}
