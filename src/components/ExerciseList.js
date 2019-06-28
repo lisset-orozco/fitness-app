@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 
 import Card from '../components/Card';
 import { Col } from 'react-flexbox-grid';
+import link from './styles/Link.css.js';
+
+// const style = {
+//   textDecoration: 'none'
+// };
 
 const ExerciseList = ({Data}) => (
   <>
@@ -15,6 +20,7 @@ const ExerciseList = ({Data}) => (
               exerciseId: exercise.id
             }}
             key={exercise.id}
+            style={link.decoration}
           >
               <Card
                 {...exercise}
