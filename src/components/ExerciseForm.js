@@ -18,7 +18,8 @@ const cancelSave = (e) => {
   window.location = '/exercise';
 }
 
-const ExerciseForm = ({ onChange, onSubmit, form }) => {
+const error = 'error'
+const ExerciseForm = ({ onChange, onSubmit, form, warning }) => {
   const classes = useStyles();
 
   return(
@@ -35,6 +36,9 @@ const ExerciseForm = ({ onChange, onSubmit, form }) => {
             value={form.title}
             required
           />
+            <div style={{ fontSize: 12, color: "red" }} >
+              { warning.titleError}
+            </div>
         </div>
         <div className="form-group">
           <input 
@@ -46,6 +50,9 @@ const ExerciseForm = ({ onChange, onSubmit, form }) => {
             value={form.description}
             required
           />
+            <div style={{ fontSize: 12, color: "red" }} >
+              { warning.descriptionError }
+            </div>
         </div>
         <div className="form-group">
           <input 

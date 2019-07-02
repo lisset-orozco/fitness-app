@@ -3,7 +3,7 @@ import React from 'react';
 import Card from '../components/Card';
 import ExerciseForm from '../components/ExerciseForm';
 
-const ExerciseNew = ({ onChange, onSubmit, form }) => (
+const ExerciseNew = ({ onChange, onSubmit, form, warning }) => (
   <div className="ExerciseNew_Margin">
     <div className="ExerciseNew_Card">
       <Card {...form} />
@@ -14,6 +14,7 @@ const ExerciseNew = ({ onChange, onSubmit, form }) => (
         onChange={onChange}
         onSubmit={onSubmit}
         form={form}
+        warning={warning}
       />
     </div>
   </div>

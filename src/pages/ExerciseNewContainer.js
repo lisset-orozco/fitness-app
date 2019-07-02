@@ -20,7 +20,11 @@ const ExerciseNewContainer = (props) => {
           }
       } ,
     loading: false,
-    hasError: false
+    hasError: false,
+    warning: { 
+      titleError: '',
+      descriptionError: ''
+    }
   }
 
   const [info, setInfo] = useState({...state})
@@ -43,23 +47,53 @@ const ExerciseNewContainer = (props) => {
     };
   }
 
+  const setWarning = (errors) => {
+    let titleError = ''
+    let descriptionError = ''
+
+    Object.keys(errors).map(x => {
+      if(errors[x] && x === 'title')
+        titleError = 'Title cannot be blank';
+
+      if(errors[x] && x === 'description')
+        descriptionError = 'Description cannot be blank';
+    });
+
+      setInfo({
+        ...info,
+        form: {
+          ...info.form,
+          title: info.form.title.trim(),
+          description: info.form.description.trim()
+        },
+        warning: {
+          titleError: titleError,
+          descriptionError: descriptionError
+        } 
+      })
+  }
+
   const canBeSubmitted = () => {
     const errors = validate(info.form.title, info.form.description);
+    setWarning(errors)
     const isDisabled = Object.keys(errors).some(x => errors[x]);
     return !isDisabled;
   }
 
   const handleSubmit = async (e) => {
     if (!canBeSubmitted()) {
+      console.log({...info.warning})
       e.preventDefault();
-
-      // v = document.getElementsByName('title')[0]
-      alert(`Title or Description are empty.`);
       return;
     }
 
     setInfo({
       ...info,
+      form: {
+        ...info.form,
+        title: info.form.title.trim(),
+        description: info.form.description.trim()
+      },
       loading: true
     });
 
@@ -101,6 +135,7 @@ const ExerciseNewContainer = (props) => {
         onChange={handleChange}
         onSubmit={handleSubmit}
         form={info.form}
+        warning={info.warning}
       />
   )
 }
