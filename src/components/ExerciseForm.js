@@ -1,17 +1,39 @@
 import React from 'react';
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
+import SaveIcon from '@material-ui/icons/Save';
 
-const ExerciseForm = ({ onChange, onSubmit, form }) => (
+const useStyles = makeStyles(theme => ({
+  rightIcon: {
+    marginLeft: theme.spacing(1),
+  },
+  iconSmall: {
+    fontSize: 20,
+  },
+}));
+
+const cancelSave = (e) => {
+  e.preventDefault();
+
+  window.location = '/exercise';
+}
+
+const ExerciseForm = ({ onChange, onSubmit, form }) => {
+  const classes = useStyles();
+
+  return(
   <>
     <div className="container">
       <form onSubmit={onSubmit} >
         <div className="form-group">
           <input 
             type="text" 
-            className="form-control" 
+            className="form-control"
             placeholder="title" 
             name="title"
             onChange={onChange}
             value={form.title}
+            required
           />
         </div>
         <div className="form-group">
@@ -22,6 +44,7 @@ const ExerciseForm = ({ onChange, onSubmit, form }) => (
             name="description"
             onChange={onChange}
             value={form.description}
+            required
           />
         </div>
         <div className="form-group">
@@ -59,13 +82,23 @@ const ExerciseForm = ({ onChange, onSubmit, form }) => (
         <br/>
         <button 
           type="submit" 
-          className="btn btn-primary float-right"
+          className="btn btn-primary float-right button-add"
+          style={{ fontSize: "15px", alignItems: "center", display: "flex" }}
         >
-          Submit
+          SAVE
+          <SaveIcon className={clsx(classes.rightIcon, classes.iconSmall)} />
+        </button> 
+        <button
+          type="button"
+          className="btn btn-secondary float-right button-add"
+          style={{ fontSize: "15px", alignItems: "center", display: "flex", backgroundColor:"#DC004E", marginRight: '6px' }}
+          onClick={cancelSave}
+        >
+          CANCEL
         </button>
       </form>
     </div>
-  </>
-);
+  </>)
+};
 
 export default ExerciseForm;

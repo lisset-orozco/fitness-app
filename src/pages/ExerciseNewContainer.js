@@ -35,7 +35,29 @@ const ExerciseNewContainer = (props) => {
     })
   )
 
+  const validate = (title, description) => {
+    // true means invalid, so our conditions got reversed
+    return {
+      title: title.trim().length === 0,
+      description: description.trim().length === 0
+    };
+  }
+
+  const canBeSubmitted = () => {
+    const errors = validate(info.form.title, info.form.description);
+    const isDisabled = Object.keys(errors).some(x => errors[x]);
+    return !isDisabled;
+  }
+
   const handleSubmit = async (e) => {
+    if (!canBeSubmitted()) {
+      e.preventDefault();
+
+      // v = document.getElementsByName('title')[0]
+      alert(`Title or Description are empty.`);
+      return;
+    }
+
     setInfo({
       ...info,
       loading: true
@@ -65,7 +87,7 @@ const ExerciseNewContainer = (props) => {
                         ...info,
                         loading: false
                     });
-                    props.history.push('/exercise');
+                    window.location = '/exercise'
                   }
                 })
   }
