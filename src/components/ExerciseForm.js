@@ -18,7 +18,6 @@ const cancelSave = (e) => {
   window.location = '/exercise';
 }
 
-const error = 'error'
 const ExerciseForm = ({ onChange, onSubmit, form, warning }) => {
   const classes = useStyles();
 

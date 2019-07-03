@@ -7,7 +7,7 @@ import FloatingAddButton from '../components/FloatingAddButton';
 
 const Exercises = ({Data}) => (
   <>
-    <Welcome username='Alexandra'/>
+    <Welcome username=''/>
 
     <Grid responsive="true">
         <Row>

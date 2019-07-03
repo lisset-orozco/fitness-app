@@ -1,12 +1,11 @@
 import React from 'react';
-import url from '../config';
-import { useFetch } from '../hooks/useFetch';
 import FatalError from '../pages/500';
 import Card from '../components/Card';
 import Buttons from '../components/Buttons';
+import httpClient from '../services/AxiosClient';
 
 const Detail = (props) => {
-  const { Data, hasError } = useFetch(`${url}/exercises/${props.location.exerciseId}`);
+  const { Data, hasError } = httpClient.get(props.location.exerciseId);
   const exercise = {...Data}
 
   return(

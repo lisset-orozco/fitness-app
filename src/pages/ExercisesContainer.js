@@ -4,6 +4,7 @@ import Loading from '../components/Loading';
 import FatalError from '../pages/500';
 import Exercises from './Exercises';
 import httpClient from '../services/AxiosClient'
+import NoResults from './NoResults';
 
 const ExercisesContainer = () => {
   const { Data, loading, hasError } = httpClient.getAll();
@@ -17,6 +18,10 @@ const ExercisesContainer = () => {
       ?
       <Loading />
       :
+        Data.length === 0
+        ?
+        <NoResults/>
+        :
         <Exercises Data={Data}/>
   )
 }

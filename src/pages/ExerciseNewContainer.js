@@ -29,15 +29,16 @@ const ExerciseNewContainer = (props) => {
 
   const [info, setInfo] = useState({...state})
 
-  const handleChange = e => (
+  const handleChange = e => {
     setInfo({
       ...info,
       form: {
         ...info.form,
         [e.target.name]: e.target.value
-      } 
+      },
+      warning: {...state.warning}
     })
-  )
+}
 
   const validate = (title, description) => {
     // true means invalid, so our conditions got reversed
@@ -57,32 +58,36 @@ const ExerciseNewContainer = (props) => {
 
       if(errors[x] && x === 'description')
         descriptionError = 'Description cannot be blank';
+
+      return '';
     });
 
-      setInfo({
-        ...info,
-        form: {
-          ...info.form,
-          title: info.form.title.trim(),
-          description: info.form.description.trim()
-        },
-        warning: {
-          titleError: titleError,
-          descriptionError: descriptionError
-        } 
-      })
+    setInfo({
+      ...info,
+      form: {
+        ...info.form,
+        title: info.form.title.trim(),
+        description: info.form.description.trim()
+      },
+      warning: {
+        titleError: titleError,
+        descriptionError: descriptionError
+      } 
+    })
   }
 
   const canBeSubmitted = () => {
     const errors = validate(info.form.title, info.form.description);
-    setWarning(errors)
     const isDisabled = Object.keys(errors).some(x => errors[x]);
+
+    if (isDisabled)
+      setWarning(errors)
+
     return !isDisabled;
   }
 
   const handleSubmit = async (e) => {
     if (!canBeSubmitted()) {
-      console.log({...info.warning})
       e.preventDefault();
       return;
     }

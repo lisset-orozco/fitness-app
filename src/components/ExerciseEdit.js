@@ -1,9 +1,8 @@
 import React from 'react';
 
-import httpClient from '../services/AxiosClient'
+import httpClient from '../services/AxiosClient';
 import Loading from '../components/Loading';
 import FatalError from '../pages/500';
-
 import ExerciseNewContainer from '../pages/ExerciseNewContainer'
 
 const ExerciseEdit = (props) => {
