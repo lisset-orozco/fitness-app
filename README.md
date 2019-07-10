@@ -22,11 +22,13 @@ This project is a Fitness Exercise website to learn React JS thanks to the devel
 <br/>
 ### All Exercises
 <p align="center">
-  <img src="assets/images/5_all_exercise.png" title="all_exercise"  width="460px" height="auto" border="1">
+   <kbd>
+    <img src="assets/images/5_all_exercise.png" title="all_exercise"  width="460px" height="auto">
+   </kbd>
 </p>
 <br/>
 <p align="center">
-  <img src="assets/images/6_all_exercise_2.png" title="all_exercise_2" class='border width_2'>
+  <img src="assets/images/6_all_exercise_2.png" title="all_exercise_2" border="10" width="680" height="auto">
 </p>
 
 #
