@@ -1,3 +1,3 @@
-const url = 'http://localhost:8000/api';
+const url_api = 'http://localhost:8000/api';
 
-export default url;
+export { url_api };

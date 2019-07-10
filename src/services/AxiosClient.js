@@ -1,7 +1,9 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react';
 
-import urlBase from '../config';
+import { url_api } from  '../config';
+
+const BASE_URL = `${url_api}/exercises`
 
 // *** GET
 const useGetAll = () => (
@@ -9,7 +11,7 @@ const useGetAll = () => (
 )
 
 const useGet = (id) => {
-  const url = id < 0 ? `${urlBase}/exercises` : `${urlBase}/exercises/${id}`
+  const url = id < 0 ? BASE_URL : `${BASE_URL}/${id}`
 
   const [Data, setData] = useState([]);
   const [hasError, setError] = useState(false);
@@ -23,7 +25,6 @@ const useGet = (id) => {
               setLoading(false);
             })
             .catch( error => {
-              console.log(error);
               setError(true);
               setLoading(false);
             });
@@ -35,10 +36,11 @@ const useGet = (id) => {
 }
 
 // *** POST
-const post = async(url, body) => {
+const post = async(body) => {
+  const url = BASE_URL
   return await axios.post(url, body)
     .then( (res) => {
-      return { success: true }
+      return { success: true , form: {...res.data.exercise} }
     })
     .catch( error => {
       return {loading: false, hasError: true}
@@ -47,21 +49,21 @@ const post = async(url, body) => {
 
 // *** DELETE
 const del = async(id) => {
-      const url = `${urlBase}/exercises/${id}`
+  const url = `${BASE_URL}/${id}`
 
-      return await axios.delete(url)
-        .then( (res) => {
-          console.log(res.msj)
-          return { success: true }
-        })
-        .catch( error => {
-          return {loading: false, hasError: true}
-        });
+  return await axios.delete(url)
+    .then( (res) => {
+      return { success: true }
+    })
+    .catch( error => {
+      return {loading: false, hasError: true}
+    });
 };
 
 // *** PUT
 const put = async(id, body) => {
-  const url = `${urlBase}/exercises/${id}`
+  const url = `${BASE_URL}/${id}`
+
     return await axios.put(url, body)
       .then( (res) => {
         return { success: true }

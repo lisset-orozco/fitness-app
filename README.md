@@ -1,68 +1,245 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<style type="text/css">
+  img.border {
+    border: 1px solid black;
+  }
 
-## Available Scripts
+  img.width_1 {
+    width:460px;
+    height:auto;
+  }
 
-In the project directory, you can run:
+  img.width_2 {
+    width:680px;
+    height:auto;
+  }
+</style>
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Fitness App
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+This project is a Fitness Exercise website to learn React JS thanks to the developer Raul Palacios following his video tutorials on [Youtube](https://www.youtube.com/watch?v=yFAIMEupsuo&list=PLIddmSRJEJ0vEBB6ECegg35IQ-sWjSDdo).
+<br/>
+### All Exercises
+<p align="center">
+  <img src="assets/images/5_all_exercise.png" title="all_exercise" class='border width_1'>
+</p>
+<br/>
+<p align="center">
+  <img src="assets/images/6_all_exercise_2.png" title="all_exercise_2" class='border width_2'>
+</p>
 
-### `npm test`
+#
+### New Exercise
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<div align="center">
+  <img src="assets/images/2_new_exercise.png" title="new_exercise" class='border width_1'>
+  <br/><br/>
+  <h4>Form with validation in case of not filling the fields</h4>
+  <img src="assets/images/3_form_validation.png" title="form_validation" class='border width_1'>
+  <br/><br/>
+  <h4>Filling all the fields</h4>
+  <img src="assets/images/4_form_info.png" title="form_info" class='border width_1'>
+</div>
 
-### `npm run build`
+#
+### Detail Exercise
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<div align="center">
+  <h4>The card can be deleted or edited</h4>
+  <img src="assets/images/7_detail_exercise.png" title="detail_exercise" class='border width_1'>
+  <br/><br/>
+  <h4>Edit</h4>
+  <img src="assets/images/8_edit_exercise.png" title="edit_exercise" class='border width_1'>
+  <h4>Delete</h4>
+  <img src="assets/images/15_delete_modal.png" title="edit_exercise" class='border width_1'>
+  <h4>Confirm Delete </h4>
+  <img src="assets/images/16_delete_confirm.png" title="edit_exercise" class='border width_1'>
+</div>
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#
+### Notifications
+<div align="center">
+  <h4>Create</h4>
+  <img src="assets/images/12_created.png" title="detail_exercise" class='border width_1'>
+  <br/><br/>
+  <h4>Update</h4>
+  <img src="assets/images/14_updated.png" title="edit_exercise" class='border width_1'>
+  <h4>Delete</h4>
+  <img src="assets/images/13_deleted.png" title="edit_exercise" class='border width_1'>
+</div>
 
-### `npm run eject`
+#
+### No Results Found
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<div align="center">
+  <h4>In case there is no data the following page will be shown</h4>
+  <img src="assets/images/1_no_results.png" title="no_results" class='border width_1'>
+</div>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#
+### Invalid Page
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<div align="center">
+  <h4>In case the page does not exist</h4>
+  <img src="assets/images/10_error_page.png" title="error_page" class='border width_1'>
+</div>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#
+### Server Error
 
-## Learn More
+<div align="center">
+  <h4>In case the server is not active</h4>
+  <img src="assets/images/9_error_server.png" title="error_server" class='border width_1'>
+</div>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#
+# API
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Configuration
 
-### Code Splitting
+#### `/src/config.js`
+```sh
+const url_api = 'http://localhost:8000/api';
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+export { url_api };
+```
+##
+### REQUEST
 
-### Analyzing the Bundle Size
+`url_api` is used in: `src/services/AxiosClient.js`
+##
+#### Get all exercises
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+> **GET** `{BASE_URL}/exercises`
 
-### Making a Progressive Web App
+> `response`:
+> ```json
+>[
+>  {
+>    "id":1,
+>    "title":"Yoga",
+>    "description":"Flexibility and strength",
+>    "img":"https://image.flaticon.com/icons/...../exercise1.png",
+>    "leftColor":"#00f4f3",
+>    "rightColor":"#ff00ed"
+>  },
+>  {
+>    "id":2,
+>    "title":"Technique Guides",
+>    "description":"Learn amazing street workout and calisthenics",
+>    "img":"https://image.flaticon.com/icons/...../exercise2.png",
+>    "leftColor":"#0142f7",
+>    "rightColor":"#ff9e00"
+>  },
+>  {
+>   "id":3,
+>    "title":"Skills Training!!",
+>    "description":"Learn the secrets of bodyweight technique",
+>    "img":"https://image.flaticon.com/icons/...../exercise3.png",
+>    "leftColor":"#00f200",
+>    "rightColor":"#9a57ee"
+>  }
+>]
+> ```
+##
+#### Get an exercise
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+> **GET** `{BASE_URL}/exercises/:id`
 
-### Advanced Configuration
+> `response`:
+> ```json
+>{
+>  "exercise":{
+>    "id":1,
+>    "title":"Yoga",
+>    "description":"Flexibility and strength",
+>    "img":"https://image.flaticon.com/icons/...../exercise1.png",
+>    "leftColor":"#00f4f3",
+>    "rightColor":"#ff00ed"
+>  }
+>}
+> ```
+##
+#### Create an exercise
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+> **POST** `{BASE_URL}/exercises`
 
-### Deployment
+> `request`:
+> ```json
+>{  
+>  "title":"Strength Training",
+>  "description":"Train anytime, everywere and become a superhero!",
+>  "img":"https://image.flaticon.com/icons/...../exercise4.png",
+>  "leftColor":"#8efa00",
+>  "rightColor":"#531b93"
+>}
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+> `response:`
+> ```json
+>{
+>  "exercise":{ 
+>    "title":"Strength Training",
+>    "description":"Train anytime, everywere and become a superhero!",
+>    "img":"https://image.flaticon.com/icons/...../exercise4.png",
+>    "leftColor":"#8efa00",
+>    "rightColor":"#531b93",
+>    "id": 4
+>  }
+>}
+> ```
+##
+#### Update an exercise
 
-### `npm run build` fails to minify
+> **PUT** `{BASE_URL}/exercises/:id`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+> `request`:
+> ```json
+>{
+>  "id":3,
+>  "title":"Skills Training",
+>  "description":"Learn the secrets of bodyweight technique",
+>  "img":"https://image.flaticon.com/icons/...../exercise3.png",
+>  "leftColor":"#00f200",
+>  "rightColor":"#ff9300"
+>}
+> ```
+
+> `response`:
+> ```json
+>{
+>  "exercise":{
+>    "id":3,
+>    "title":"Skills Training",
+>    "description":"Learn the secrets of bodyweight technique",
+>    "img":"https://image.flaticon.com/icons/...../exercise3.png",
+>    "leftColor":"#00f200",
+>    "rightColor":"#ff9300"
+>  }
+>}
+> ```
+
+#
+#### Delete an exercise
+> **DELETE** `{BASE_URL}/exercises/:id`
+
+> `response`:
+> ```json
+> {
+>  "msg":"deleted"
+>}
+> ```
+
+### API Project
+
+Link
+> https://github.com/lisset-orozco/FitnessAPI
+
+`$ npm install`
+`$ npm start`
+
+or
+
+`$ yarn install`
+`$ yarn start`
+

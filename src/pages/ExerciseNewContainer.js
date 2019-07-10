@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import '../components/styles/ExerciseNew.css';
 import ExerciseNew from './ExerciseNew';
 import FatalError from '../pages/500';
-import url from '../config';
-import httpClient from '../services/AxiosClient'
+import httpClient from '../services/AxiosClient';
 
 const ExerciseNewContainer = (props) => {
   const state = {
@@ -24,7 +24,9 @@ const ExerciseNewContainer = (props) => {
     warning: { 
       titleError: '',
       descriptionError: ''
-    }
+    }, 
+    redirectHome: false,
+    redirectDetail: false
   }
 
   const [info, setInfo] = useState({...state})
@@ -38,7 +40,7 @@ const ExerciseNewContainer = (props) => {
       },
       warning: {...state.warning}
     })
-}
+  }
 
   const validate = (title, description) => {
     // true means invalid, so our conditions got reversed
@@ -111,22 +113,21 @@ const ExerciseNewContainer = (props) => {
                   if (res.success) {
                     setInfo({
                         ...info,
-                        loading: false
+                        loading: false,
+                        redirectDetail: true
                     })
-                    
-                    console.log(window.location)
-                    window.location = '/exercise'
                   }
                 })
     :
-      httpClient.post(`${url}/exercises`, {...info.form})
+      httpClient.post({...info.form})
                 .then(res => {
                   if (res.success) {
                     setInfo({
                         ...info,
-                        loading: false
+                        form: {...res.form},
+                        loading: false,
+                        redirectHome: true
                     });
-                    window.location = '/exercise'
                   }
                 })
   }
@@ -136,12 +137,29 @@ const ExerciseNewContainer = (props) => {
     ?
       <FatalError />
     :
-      <ExerciseNew
-        onChange={handleChange}
-        onSubmit={handleSubmit}
-        form={info.form}
-        warning={info.warning}
-      />
+      info.redirectHome
+      ?
+        // <Redirect to='/exercise'/>
+        <Redirect to={{
+          pathname: '/exercise/detail',
+          exerciseId: info.form.id,
+          actionType: 'created'
+        }} />
+      :
+        info.redirectDetail
+        ?
+          <Redirect to={{
+            pathname: '/exercise/detail',
+            exerciseId: info.form.id,
+            actionType: 'updated'
+          }} />
+        :
+          <ExerciseNew
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+            form={info.form}
+            warning={info.warning}
+          />
   )
 }
 

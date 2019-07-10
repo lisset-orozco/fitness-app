@@ -3,6 +3,7 @@ import FatalError from '../pages/500';
 import Card from '../components/Card';
 import Buttons from '../components/Buttons';
 import httpClient from '../services/AxiosClient';
+import CustomizedSnackbar from '../components/CustomizedSnackbar';
 
 const Detail = (props) => {
   const { Data, hasError } = httpClient.get(props.location.exerciseId);
@@ -21,7 +22,7 @@ const Detail = (props) => {
       <div style={{display: 'flex', justifyContent: 'center'}}>
         <Buttons id={props.location.exerciseId} />
       </div>
-      
+      { props.location.actionType && <CustomizedSnackbar actionType={props.location.actionType} />}
     </>
   )
 }

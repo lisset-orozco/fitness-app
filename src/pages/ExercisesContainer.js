@@ -3,10 +3,10 @@ import React from 'react';
 import Loading from '../components/Loading';
 import FatalError from '../pages/500';
 import Exercises from './Exercises';
-import httpClient from '../services/AxiosClient'
+import httpClient from '../services/AxiosClient';
 import NoResults from './NoResults';
 
-const ExercisesContainer = () => {
+const ExercisesContainer = (props) => {
   const { Data, loading, hasError } = httpClient.getAll();
 
   return(
@@ -22,7 +22,7 @@ const ExercisesContainer = () => {
         ?
         <NoResults/>
         :
-        <Exercises Data={Data}/>
+        <Exercises Data={Data} actionType={props.location.actionType}/>
   )
 }
 

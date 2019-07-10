@@ -2,6 +2,18 @@ import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import SaveIcon from '@material-ui/icons/Save';
+import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import link from './styles/Link.css.js';
+import styled from 'styled-components';
+
+const StyledRoot = styled.div`
+  .fab:hover {
+    background-color: #b2b2b2;
+    color: white;
+    border: #b2b2b2;
+  }
+`;
 
 const useStyles = makeStyles(theme => ({
   rightIcon: {
@@ -9,14 +21,8 @@ const useStyles = makeStyles(theme => ({
   },
   iconSmall: {
     fontSize: 20,
-  },
+  }
 }));
-
-const cancelSave = (e) => {
-  e.preventDefault();
-
-  window.location = '/exercise';
-}
 
 const ExerciseForm = ({ onChange, onSubmit, form, warning }) => {
   const classes = useStyles();
@@ -86,21 +92,28 @@ const ExerciseForm = ({ onChange, onSubmit, form, warning }) => {
           </div>
         </div>
         <br/>
-        <button 
+
+        <Link to={{
+              pathname: form.id ? '/exercise/detail' : '/exercise',
+              exerciseId: form.id
+            }}
+            key={form.id}
+            style={link.decoration}
+        >
+          <StyledRoot>
+            <Button variant="outlined" color="default" className="float-right fab" style={{ marginLeft: '16px'}}>
+            Cancel
+            </Button>
+          </StyledRoot>
+      </Link>
+
+      <button 
           type="submit" 
           className="btn btn-primary float-right button-add"
           style={{ fontSize: "15px", alignItems: "center", display: "flex" }}
         >
           SAVE
           <SaveIcon className={clsx(classes.rightIcon, classes.iconSmall)} />
-        </button> 
-        <button
-          type="button"
-          className="btn btn-secondary float-right button-add"
-          style={{ fontSize: "15px", alignItems: "center", display: "flex", backgroundColor:"#DC004E", marginRight: '6px' }}
-          onClick={cancelSave}
-        >
-          CANCEL
         </button>
       </form>
     </div>
