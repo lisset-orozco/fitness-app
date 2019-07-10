@@ -21,8 +21,8 @@
 This project is a Fitness Exercise website to learn React JS thanks to the developer Raul Palacios following his video tutorials on [Youtube](https://www.youtube.com/watch?v=yFAIMEupsuo&list=PLIddmSRJEJ0vEBB6ECegg35IQ-sWjSDdo).
 <br/>
 ### All Exercises
-<p align="center">
-  <img src="assets/images/5_all_exercise.png" title="all_exercise" style="border:1px solid black; width:260px; height:auto;">
+<p align="center" style="border:1px solid black; width:260px; height:auto;">
+  <img src="assets/images/5_all_exercise.png" title="all_exercise" >
 </p>
 <br/>
 <p align="center">
