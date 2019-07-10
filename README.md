@@ -1,18 +1,21 @@
-<style>
-  img.border {
-    border: 1px solid black;
-  }
+<head>
+  <style>
+    img.border {
+      border: 1px solid black;
+    }
 
-  img.width_1 {
-    width:460px;
-    height:auto;
-  }
+    img.width_1 {
+      width:460px;
+      height:auto;
+    }
 
-  img.width_2 {
-    width:680px;
-    height:auto;
-  }
-</style>
+    img.width_2 {
+      width:680px;
+      height:auto;
+    }
+  </style>
+</head>
+
 
 
 # Fitness App
@@ -21,7 +24,7 @@ This project is a Fitness Exercise website to learn React JS thanks to the devel
 <br/>
 ### All Exercises
 <p align="center">
-  <img src="assets/images/5_all_exercise.png" title="all_exercise" class='border width_1'>
+  <img src="assets/images/5_all_exercise.png" title="all_exercise" style="border:1px solid black; width:460px; height:auto;">
 </p>
 <br/>
 <p align="center">
