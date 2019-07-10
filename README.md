@@ -1,47 +1,39 @@
-<style>
-    img.border {
-      border: 1px solid black;
-    }
-
-    img.width_1 {
-      width:460px;
-      height:auto;
-    }
-
-    img.width_2 {
-      width:680px;
-      height:auto;
-    }
-</style>
-
-
-
 # Fitness App
 
-This project is a Fitness Exercise website to learn React JS thanks to the developer Raul Palacios following his video tutorials on [Youtube](https://www.youtube.com/watch?v=yFAIMEupsuo&list=PLIddmSRJEJ0vEBB6ECegg35IQ-sWjSDdo).
+This project is a Fitness Exercise website to learn React JS thanks to the developer [Raul Palacios](https://github.com/RpL02) following his video tutorials on [Youtube](https://www.youtube.com/watch?v=yFAIMEupsuo&list=PLIddmSRJEJ0vEBB6ECegg35IQ-sWjSDdo).
 <br/>
+----------
+
 ### All Exercises
 <p align="center">
-   <kbd>
+  <kbd>
     <img src="assets/images/5_all_exercise.png" title="all_exercise"  width="460px" height="auto">
-   </kbd>
+  </kbd>
 </p>
 <br/>
 <p align="center">
-  <img src="assets/images/6_all_exercise_2.png" title="all_exercise_2" border="10" width="680" height="auto">
+  <kbd>
+    <img src="assets/images/6_all_exercise_2.png" title="all_exercise_2"  width="680px" height="auto">
+  </kbd>
 </p>
 
 #
 ### New Exercise
 
 <div align="center">
-  <img src="assets/images/2_new_exercise.png" title="new_exercise" class='border width_1'>
+  <kbd>
+    <img src="assets/images/2_new_exercise.png" title="new_exercise" width="460px" height="auto">
+  </kbd>
   <br/><br/>
   <h4>Form with validation in case of not filling the fields</h4>
-  <img src="assets/images/3_form_validation.png" title="form_validation" class='border width_1'>
+  <kbd>
+    <img src="assets/images/3_form_validation.png" title="form_validation" width="460px" height="auto">
+  </kbd>
   <br/><br/>
   <h4>Filling all the fields</h4>
-  <img src="assets/images/4_form_info.png" title="form_info" class='border width_1'>
+  <kbd>
+    <img src="assets/images/4_form_info.png" title="form_info" width="460px" height="auto">
+  </kbd>
 </div>
 
 #
@@ -49,14 +41,22 @@ This project is a Fitness Exercise website to learn React JS thanks to the devel
 
 <div align="center">
   <h4>The card can be deleted or edited</h4>
-  <img src="assets/images/7_detail_exercise.png" title="detail_exercise" class='border width_1'>
+  <kbd>
+    <img src="assets/images/7_detail_exercise.png" title="detail_exercise" width="460px" height="auto">
+  </kbd>
   <br/><br/>
   <h4>Edit</h4>
-  <img src="assets/images/8_edit_exercise.png" title="edit_exercise" class='border width_1'>
+  <kbd>
+    <img src="assets/images/8_edit_exercise.png" title="edit_exercise" width="460px" height="auto">
+  </kbd>
   <h4>Delete</h4>
-  <img src="assets/images/15_delete_modal.png" title="edit_exercise" class='border width_1'>
+  <kbd>
+    <img src="assets/images/15_delete_modal.png" title="edit_exercise" width="460px" height="auto">
+  </kbd>
   <h4>Confirm Delete </h4>
-  <img src="assets/images/16_delete_confirm.png" title="edit_exercise" class='border width_1'>
+  <kbd>
+    <img src="assets/images/16_delete_confirm.png" title="edit_exercise" width="460px" height="auto">
+  </kbd>
 </div>
 
 
@@ -64,12 +64,18 @@ This project is a Fitness Exercise website to learn React JS thanks to the devel
 ### Notifications
 <div align="center">
   <h4>Create</h4>
-  <img src="assets/images/12_created.png" title="detail_exercise" class='border width_1'>
+  <kbd>
+    <img src="assets/images/12_created.png" title="detail_exercise" width="460px" height="auto">
+  </kbd>
   <br/><br/>
   <h4>Update</h4>
-  <img src="assets/images/14_updated.png" title="edit_exercise" class='border width_1'>
+  <kbd>
+    <img src="assets/images/14_updated.png" title="edit_exercise" width="460px" height="auto">
+  </kbd>
   <h4>Delete</h4>
-  <img src="assets/images/13_deleted.png" title="edit_exercise" class='border width_1'>
+  <kbd>
+    <img src="assets/images/13_deleted.png" title="edit_exercise" width="460px" height="auto">
+  </kbd>
 </div>
 
 #
@@ -77,7 +83,9 @@ This project is a Fitness Exercise website to learn React JS thanks to the devel
 
 <div align="center">
   <h4>In case there is no data the following page will be shown</h4>
-  <img src="assets/images/1_no_results.png" title="no_results" class='border width_1'>
+  <kbd>
+    <img src="assets/images/1_no_results.png" title="no_results" width="460px" height="auto">
+  </kbd>
 </div>
 
 #
@@ -85,7 +93,9 @@ This project is a Fitness Exercise website to learn React JS thanks to the devel
 
 <div align="center">
   <h4>In case the page does not exist</h4>
-  <img src="assets/images/10_error_page.png" title="error_page" class='border width_1'>
+  <kbd>
+    <img src="assets/images/10_error_page.png" title="error_page" width="460px" height="auto">
+  </kbd>
 </div>
 
 #
@@ -93,7 +103,9 @@ This project is a Fitness Exercise website to learn React JS thanks to the devel
 
 <div align="center">
   <h4>In case the server is not active</h4>
-  <img src="assets/images/9_error_server.png" title="error_server" class='border width_1'>
+  <kbd>
+    <img src="assets/images/9_error_server.png" title="error_server" width="460px" height="auto">
+  </kbd>
 </div>
 
 #
