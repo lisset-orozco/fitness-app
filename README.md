@@ -1,4 +1,4 @@
-<style type="text/css">
+<style>
   img.border {
     border: 1px solid black;
   }
