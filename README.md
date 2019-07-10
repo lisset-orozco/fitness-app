@@ -1,7 +1,7 @@
 # Fitness App
 
-This project is a Fitness Exercise website to learn React JS thanks to the developer [Raul Palacios](https://github.com/RpL02) following his video tutorials on [Youtube](https://www.youtube.com/watch?v=yFAIMEupsuo&list=PLIddmSRJEJ0vEBB6ECegg35IQ-sWjSDdo).
-<br/>
+#### This project is a Fitness Exercise website to learn React JS thanks to the developer [Raul Palacios](https://github.com/RpL02) following his video tutorials on [Youtube](https://www.youtube.com/watch?v=yFAIMEupsuo&list=PLIddmSRJEJ0vEBB6ECegg35IQ-sWjSDdo).
+
 ----------
 
 ### All Exercises
