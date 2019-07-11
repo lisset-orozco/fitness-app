@@ -295,11 +295,13 @@ Link
 
 #### `node v12.3.1`
 
-`$ npm install`
-`$ npm start`
-
+```console
+  $ npm install
+  $ npm start
+```
 or
 
-`$ yarn install`
-`$ yarn start`
-
+```console
+  $ yarn install
+  $ yarn start
+```
