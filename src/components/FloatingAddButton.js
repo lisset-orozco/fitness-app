@@ -1,29 +1,28 @@
 import React from 'react';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
 
-const StyledRoot = styled.div`
-  .fab {
-    position: fixed;
-    right: 2%;
-    bottom: 2%;
-    outline: none;
-    outline-offset: none;
-  }
-`;
+const useStyles = makeStyles(theme => ({
+  styButton: {
+    position: 'fixed',
+    right: '3%',
+    bottom: '2%',
+    outline: 'none',
+    outlineOffset: 'none'
+  },
+}));
 
 const FloatingAddButton = () => {
-    return (
-      <Link to="/exercise/new">
-        <StyledRoot>
-          <Fab className="fab" color="secondary" >
-            <AddIcon />
-          </Fab>
-        </StyledRoot>
-      </Link>
-    );
-  }
+  const classes = useStyles();
+  return (
+    <Link to="/exercise/new">
+      <Fab className={classes.styButton} color="secondary" >
+        <AddIcon />
+      </Fab>
+    </Link>
+  );
+}
 
 export default FloatingAddButton;

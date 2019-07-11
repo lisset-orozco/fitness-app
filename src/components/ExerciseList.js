@@ -13,7 +13,7 @@ const ExerciseList = ({Data}) => (
           <Link //to="/exercise/detail" key={exercise.id} {...exercise}
             to={{
               pathname: '/exercise/detail',
-              exerciseId: exercise.id
+              state: exercise.id
             }}
             key={exercise.id}
             style={link.decoration}

@@ -54,11 +54,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const IconLabelButtons = (props) => {
+const IconLabelButtons = ({ id }) => {
   const classes = useStyles();
 
   const deleteData = () => {
-    httpClient.delete(props.id).then((res) => {
+    httpClient.delete(id).then((res) => {
       if (res.success) {
         setRedirectHome(true);
       }
@@ -94,8 +94,6 @@ const IconLabelButtons = (props) => {
       }} />
     :
     <div>
-      {/* <ConfirmationDelete /> */}
-
       <Button variant="contained" color="secondary" className={classes.button} onClick={handleClickOpen}>
         Delete
         <DeleteIcon className={classes.rightIcon} />
@@ -103,7 +101,8 @@ const IconLabelButtons = (props) => {
 
       <Link to={{
               pathname: '/exercise/edit',
-              id: props.id
+              id: id,
+              state: id
             }}
             key={1}
             style={link.decoration}
@@ -115,14 +114,14 @@ const IconLabelButtons = (props) => {
       </Link>
       
       <Link to={{
-                    pathname: '/exercise',
-                  }}
-                  key={2}
-                  style={link.decoration}
-              >
-                <Button variant="outlined" color="default" className={clsx(classes.button, classes.buttonHover)} >
-                Cancel
-                </Button>
+            pathname: '/exercise'
+          }}
+          key={2}
+          style={link.decoration}
+      >
+        <Button variant="outlined" color="default" className={clsx(classes.button, classes.buttonHover)} >
+        Cancel
+        </Button>
       </Link>
 
       

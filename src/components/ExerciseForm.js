@@ -5,15 +5,6 @@ import SaveIcon from '@material-ui/icons/Save';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import link from './styles/Link.css.js';
-import styled from 'styled-components';
-
-const StyledRoot = styled.div`
-  .fab:hover {
-    background-color: #b2b2b2;
-    color: white;
-    border: #b2b2b2;
-  }
-`;
 
 const useStyles = makeStyles(theme => ({
   rightIcon: {
@@ -21,6 +12,13 @@ const useStyles = makeStyles(theme => ({
   },
   iconSmall: {
     fontSize: 20,
+  },
+  buttonHover: {
+    "&:hover": {
+      backgroundColor: '#b2b2b2',
+      color:'white',
+      border:'#b2b2b2'
+    }
   }
 }));
 
@@ -28,7 +26,6 @@ const ExerciseForm = ({ onChange, onSubmit, form, warning }) => {
   const classes = useStyles();
 
   return(
-  <>
     <div className="container">
       <form onSubmit={onSubmit} >
         <div className="form-group">
@@ -95,19 +92,17 @@ const ExerciseForm = ({ onChange, onSubmit, form, warning }) => {
 
         <Link to={{
               pathname: form.id ? '/exercise/detail' : '/exercise',
-              exerciseId: form.id
+              state: form.id
             }}
             key={form.id}
             style={link.decoration}
         >
-          <StyledRoot>
-            <Button variant="outlined" color="default" className="float-right fab" style={{ marginLeft: '16px'}}>
-            Cancel
-            </Button>
-          </StyledRoot>
-      </Link>
+          <Button variant="outlined" color="default" className={clsx(classes.buttonHover, "float-right" )} style={{ marginLeft:'16px'}}>
+          Cancel
+          </Button>
+        </Link>
 
-      <button 
+        <button 
           type="submit" 
           className="btn btn-primary float-right button-add"
           style={{ fontSize: "15px", alignItems: "center", display: "flex" }}
@@ -117,7 +112,7 @@ const ExerciseForm = ({ onChange, onSubmit, form, warning }) => {
         </button>
       </form>
     </div>
-  </>)
+  )
 };
 
 export default ExerciseForm;

@@ -6,7 +6,7 @@ import FatalError from '../pages/500';
 import ExerciseNewContainer from '../pages/ExerciseNewContainer'
 
 const ExerciseEdit = (props) => {
-  const { Data, loading, hasError } = httpClient.get(props.location.id)
+  const { Data, loading, hasError } = httpClient.get(props.location.state)
 
   return(
     hasError 

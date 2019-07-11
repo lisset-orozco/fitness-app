@@ -142,7 +142,7 @@ const ExerciseNewContainer = (props) => {
         // <Redirect to='/exercise'/>
         <Redirect to={{
           pathname: '/exercise/detail',
-          exerciseId: info.form.id,
+          state: info.form.id,
           actionType: 'created'
         }} />
       :
@@ -150,7 +150,7 @@ const ExerciseNewContainer = (props) => {
         ?
           <Redirect to={{
             pathname: '/exercise/detail',
-            exerciseId: info.form.id,
+            state: info.form.id,
             actionType: 'updated'
           }} />
         :

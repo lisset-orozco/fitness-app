@@ -6,7 +6,7 @@ import httpClient from '../services/AxiosClient';
 import CustomizedSnackbar from '../components/CustomizedSnackbar';
 
 const Detail = (props) => {
-  const { Data, hasError } = httpClient.get(props.location.exerciseId);
+  const { Data, hasError } = httpClient.get(props.location.state);
   const exercise = {...Data}
 
   return(
@@ -20,7 +20,7 @@ const Detail = (props) => {
       </div>
       <br/>
       <div style={{display: 'flex', justifyContent: 'center'}}>
-        <Buttons id={props.location.exerciseId} />
+        <Buttons id={props.location.state} />
       </div>
       { props.location.actionType && <CustomizedSnackbar actionType={props.location.actionType} />}
     </>

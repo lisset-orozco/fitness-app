@@ -245,10 +245,59 @@ export { url_api };
 >}
 > ```
 
-### API Project
+#
+#### Dependencies
+<table>
+	<tr>
+		<th>Package</th>
+		<th>Version</th>
+ 	</tr>
+  <tr>
+    <td>react</td>
+    <td>16.8.6</td>
+ 	</tr>
+  <tr>
+    <td>react-dom</td>
+    <td>16.8.6</td>
+ 	</tr>
+  <tr>
+    <td>react-router-dom</td>
+    <td>5.0.1</td>
+ 	</tr>
+  <tr>
+    <td>react-scripts</td>
+    <td>3.0.1</td>
+ 	</tr>
+  <tr>
+    <td>react-flexbox-grid</td>
+    <td>2.1.2</td>
+ 	</tr>
+ 	<tr>
+  	<td>@material-ui/core</td>
+   	<td>4.1.1</td>
+ 	</tr>
+	<tr>
+    <td>@material-ui/icons</td>
+    <td>4.2.0</td>
+ 	</tr>
+	<tr>
+    <td>axios</td>
+    <td>0.19.0</td>
+ 	</tr>
+	<tr>
+    <td>bootstrap</td>
+    <td>4.3.1</td>
+ 	</tr>
+</table>
+
+
+#
+# API Project
 
 Link
 > https://github.com/lisset-orozco/FitnessAPI
+
+#### `node v12.3.1`
 
 `$ npm install`
 `$ npm start`
