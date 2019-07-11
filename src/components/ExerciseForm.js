@@ -14,6 +14,9 @@ const useStyles = makeStyles(theme => ({
     fontSize: 20,
   },
   buttonHover: {
+    backgroundColor: 'transparent',
+    color: 'black',
+
     "&:hover": {
       backgroundColor: '#b2b2b2',
       color:'white',
@@ -97,7 +100,7 @@ const ExerciseForm = ({ onChange, onSubmit, form, warning }) => {
             key={form.id}
             style={link.decoration}
         >
-          <Button variant="outlined" color="default" className={clsx(classes.buttonHover, "float-right" )} style={{ marginLeft:'16px'}}>
+          <Button variant="contained" color="default" className={clsx(classes.buttonHover, "float-right" )} style={{ marginLeft:'16px'}}>
           Cancel
           </Button>
         </Link>

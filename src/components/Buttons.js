@@ -20,6 +20,7 @@ import link from './styles/Link.css.js';
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
+    minWidth: '110px'
   },
   buttonC: {
     marginRight: theme.spacing(2),
@@ -29,12 +30,15 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(1),
   },
   rightIcon: {
-    marginLeft: theme.spacing(1),
+    marginLeft: '5px'
   },
   iconSmall: {
     fontSize: 20,
   },
   buttonHover: {
+    backgroundColor: 'transparent',
+    color: 'black',
+
     "&:hover": {
       backgroundColor: '#b2b2b2',
       color:'white',
@@ -96,7 +100,7 @@ const IconLabelButtons = ({ id }) => {
     <div>
       <Button variant="contained" color="secondary" className={classes.button} onClick={handleClickOpen}>
         Delete
-        <DeleteIcon className={classes.rightIcon} />
+        <DeleteIcon />
       </Button>
 
       <Link to={{
@@ -119,8 +123,8 @@ const IconLabelButtons = ({ id }) => {
           key={2}
           style={link.decoration}
       >
-        <Button variant="outlined" color="default" className={clsx(classes.button, classes.buttonHover)} >
-        Cancel
+        <Button variant="contained" color="default" className={clsx(classes.button, classes.buttonHover)} >
+        Back
         </Button>
       </Link>
 
@@ -146,7 +150,7 @@ const IconLabelButtons = ({ id }) => {
               ></input>
         </DialogContent>
         <DialogActions className={classes.buttonC}>
-          <Button onClick={handleClose} variant="outlined" color="default" className={classes.buttonHover}>
+          <Button onClick={handleClose} variant="contained" color="default" className={classes.buttonHover}>
             Cancel
           </Button>
           <Button onClick={deleteData} variant="contained" color="secondary" disabled={enableButton}>
