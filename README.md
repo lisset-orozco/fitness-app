@@ -284,10 +284,6 @@ export { url_api };
     <td>axios</td>
     <td>0.19.0</td>
  	</tr>
-	<tr>
-    <td>bootstrap</td>
-    <td>4.3.1</td>
- 	</tr>
 </table>
 
 
