@@ -14,16 +14,15 @@ const Detail = (props) => {
     ?
       <FatalError />
     :
-    <>
+    <div>
       <div className="ExerciseNew_Card_Space">
         <Card {...exercise} />
       </div>
-      <br/>
       <div style={{display: 'flex', justifyContent: 'center'}}>
-        <Buttons id={props.location.state} />
+        <Buttons id={props.location.state}/>
       </div>
       { props.location.actionType && <CustomizedSnackbar actionType={props.location.actionType} />}
-    </>
+    </div>
   )
 }
 ;

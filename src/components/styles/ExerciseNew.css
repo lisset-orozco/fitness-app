@@ -3,20 +3,30 @@
   margin-left: 100px;
 }
 .ExerciseNew_Card_Space{
-  margin-top: 180px;
+  margin-top: 20vh;
+  margin-bottom: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
+  height: 140px;
+  /* padding: 2%; */
 }
 .ExerciseNew_Form_Space{
-  margin-top: 140px;
-  padding-top: 4%;
+  margin-top: 20vh;
+  padding: 4%;
 }
 
 .ExerciseNew_Margin {
-  margin-top: 140px;
+  margin-top: 15vh;
   max-width: 600px;
   margin-right: auto;
   margin-left: auto;
 }
 
 .ExerciseNew_Card{
-  padding-bottom: 4%;
+  padding: 2%;
+}
+
+.ExerciseForm{
+  padding: 2% 5%;
+  margin-bottom: 18vh;
 }

@@ -4,10 +4,16 @@ import { makeStyles } from '@material-ui/core/styles';
 import SaveIcon from '@material-ui/icons/Save';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+
 import link from './styles/Link.css.js';
 
 const useStyles = makeStyles(theme => ({
   rightIcon: {
+    marginRight: theme.spacing(1),
+  },
+  leftIcon: {
     marginLeft: theme.spacing(1),
   },
   iconSmall: {
@@ -30,67 +36,81 @@ const ExerciseForm = ({ onChange, onSubmit, form, warning }) => {
 
   return(
     <div className="container">
-      <form onSubmit={onSubmit} >
-        <div className="form-group">
-          <input 
-            type="text" 
-            className="form-control"
-            placeholder="title" 
-            name="title"
-            onChange={onChange}
-            value={form.title}
-            required
-          />
-            <div style={{ fontSize: 12, color: "red" }} >
-              { warning.titleError}
-            </div>
+      <form onSubmit={onSubmit} style={{ width: '100%' }}>
+        <TextField
+          fullWidth
+          id="outlined-dense"
+          label="title"
+          className={clsx(classes.textField, classes.dense)}
+          margin="dense"
+          variant="outlined"
+          type="text" 
+          name="title"
+          value={form.title}
+          onChange={onChange}
+          autoFocus
+          required
+        />
+        <div style={{ fontSize: 12, color: "red" }} >
+          { warning.titleError}
         </div>
-        <div className="form-group">
-          <input 
-            type="text" 
-            className="form-control" 
-            placeholder="description" 
-            name="description"
-            onChange={onChange}
-            value={form.description}
-            required
-          />
-            <div style={{ fontSize: 12, color: "red" }} >
-              { warning.descriptionError }
-            </div>
+
+        <TextField
+          fullWidth
+          id="outlined-dense"
+          label="description"
+          className={clsx(classes.textField, classes.dense)}
+          margin="dense"
+          variant="outlined"
+          name="description"
+          onChange={onChange}
+          value={form.description}
+          required
+        /> 
+        <div style={{ fontSize: 12, color: "red" }} >
+          { warning.descriptionError }
         </div>
-        <div className="form-group">
-          <input 
-            type="text" 
-            className="form-control" 
-            placeholder="img" 
-            name="img"
-            onChange={onChange}
-            value={form.img}
-          />
-        </div>
-        <div className="form-row">
-          <div className="col">
-            <input 
-              type="color" 
-              className="form-control" 
-              placeholder="leftColor" 
+
+        <TextField
+          fullWidth
+          id="outlined-dense"
+          label="image"
+          placeholder="link" 
+          className={clsx(classes.textField, classes.dense)}
+          margin="dense"
+          variant="outlined"
+          name="img"
+          onChange={onChange}
+          value={form.img}
+        /> 
+
+        <Grid container spacing={2}>
+          <Grid item xs={6} sm={6}>
+            <TextField
+              variant="outlined"
+              required
+              fullWidth
               name="leftColor"
+              margin="dense"
+              type="color" 
               onChange={onChange}
               value={form.leftColor || '#56CCF2'}
             />
-          </div>
-          <div className="col">
-            <input 
-              type="color" 
-              className="form-control"
-              placeholder="rightColor" 
+          </Grid>
+          <Grid item xs={6} sm={6}>
+            <TextField
+              variant="outlined"
+              required
+              fullWidth
+              id="lastName"
               name="rightColor"
+              type="color" 
+              margin="dense"
               onChange={onChange}
               value={form.rightColor || '#2F80ED'}
-            />    
-          </div>
-        </div>
+            />
+          </Grid>
+        </Grid>
         <br/>
 
         <Link to={{
@@ -100,19 +120,14 @@ const ExerciseForm = ({ onChange, onSubmit, form, warning }) => {
             key={form.id}
             style={link.decoration}
         >
-          <Button variant="contained" color="default" className={clsx(classes.buttonHover, "float-right" )} style={{ marginLeft:'16px'}}>
+          <Button variant="contained" color="default" className={clsx(classes.buttonHover)} style={{ marginLeft:'16px', float:'right'}}>
           Cancel
           </Button>
         </Link>
-
-        <button 
-          type="submit" 
-          className="btn btn-primary float-right button-add"
-          style={{ fontSize: "15px", alignItems: "center", display: "flex" }}
-        >
-          SAVE
-          <SaveIcon className={clsx(classes.rightIcon, classes.iconSmall)} />
-        </button>
+        <Button type="submit"  variant="contained" color="primary" className={clsx(classes.button)} style={{ float:'right'}}>
+          Save
+          <SaveIcon className={clsx(classes.leftIcon, classes.iconSmall)} />
+        </Button>
       </form>
     </div>
   )

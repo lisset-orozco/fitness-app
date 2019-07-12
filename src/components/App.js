@@ -14,7 +14,7 @@ const App = () => (
       <Route exact path='/exercise' component={ExercisesContainer} />
       <Route path='/exercise/new' component={ExerciseNewContainer} />
       <Route path='/exercise/edit' component={ExerciseEdit} />
-      <Route path='/exercise/detail' component={Detail} />
+      <Route path='/exercise/detail' component={Detail}/>
       <Route component={NotFound} />
     </Switch>
   </BrowserRouter>

@@ -268,10 +268,6 @@ export { url_api };
     <td>react-scripts</td>
     <td>3.0.1</td>
  	</tr>
-  <tr>
-    <td>react-flexbox-grid</td>
-    <td>2.1.2</td>
- 	</tr>
  	<tr>
   	<td>@material-ui/core</td>
    	<td>4.1.1</td>

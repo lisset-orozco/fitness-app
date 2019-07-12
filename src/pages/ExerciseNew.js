@@ -9,7 +9,7 @@ const ExerciseNew = ({ onChange, onSubmit, form, warning }) => (
       <Card {...form} />
     </div>
 
-    <div className="">
+    <div className="ExerciseForm">
       <ExerciseForm 
         onChange={onChange}
         onSubmit={onSubmit}

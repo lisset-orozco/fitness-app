@@ -13,6 +13,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import TextField from '@material-ui/core/TextField';
 
 import httpClient from '../services/AxiosClient';
 import link from './styles/Link.css.js';
@@ -20,11 +21,11 @@ import link from './styles/Link.css.js';
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
-    minWidth: '110px'
+    minWidth: '110px',
   },
-  buttonC: {
+  dialog: {
     marginRight: theme.spacing(2),
-    marginBottom: theme.spacing(1)
+    marginBottom: theme.spacing(1),
   },
   leftIcon: {
     marginRight: theme.spacing(1),
@@ -97,7 +98,7 @@ const IconLabelButtons = ({ id }) => {
         actionType: 'deleted'
       }} />
     :
-    <div>
+    <div align="center">
       <Button variant="contained" color="secondary" className={classes.button} onClick={handleClickOpen}>
         Delete
         <DeleteIcon />
@@ -133,7 +134,7 @@ const IconLabelButtons = ({ id }) => {
       {/********************* CONFIRMATION DELETE {/*********************/}
       <br/>
       <div align="center">
-      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+      <Dialog open={open} onClose={handleClose}  className={classes.border}>
         <DialogTitle id="form-dialog-title" style={{color:'white', backgroundColor:'#f50057'}}>Are you absolutely sure?</DialogTitle>
         <DialogContent>
           <DialogContentText>
@@ -141,19 +142,26 @@ const IconLabelButtons = ({ id }) => {
             <br/>
             Please type <b style={{color:'#f50057'}}>DELETE</b> to confirm you want to permanently delete it:
           </DialogContentText>
-            <input 
-              type="text"
+            <TextField
+              fullWidth
+              id="outlined-dense"
               label="delete"
-              style={{textTransform: 'uppercase'}} 
-              className={clsx(classes.input)}
+              className={clsx(classes.dense)}
+              margin="dense"
+              variant="outlined"
+              type="text" 
               onChange={handleChange}
-              ></input>
+              inputProps={{
+                style: { textTransform: 'uppercase' }
+              }}
+              autoFocus
+            />
         </DialogContent>
-        <DialogActions className={classes.buttonC}>
+        <DialogActions className={classes.dialog}>
           <Button onClick={handleClose} variant="contained" color="default" className={classes.buttonHover}>
             Cancel
           </Button>
-          <Button onClick={deleteData} variant="contained" color="secondary" disabled={enableButton}>
+          <Button onClick={deleteData} variant="contained" color="secondary" disabled={enableButton} className={classes.border} >
             Confirm
           </Button>
         </DialogActions>

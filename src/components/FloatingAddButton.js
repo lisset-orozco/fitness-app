@@ -16,7 +16,7 @@ const FloatingAddButton = () => {
   const classes = useStyles();
   return (
     <Link to="/exercise/new">
-      <Fab className={classes.styButton} color="secondary" style={{outline: 'none'}}>
+      <Fab className={classes.styButton} color="secondary">
         <AddIcon />
       </Fab>
     </Link>

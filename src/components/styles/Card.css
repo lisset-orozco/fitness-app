@@ -1,24 +1,35 @@
 .card {
-  margin-top: 20px;
+  margin-top: 5px;
   border: none;
   border-radius: 8px;
   /* background: url('../../images/circles.png') no-repeat, linear-gradient(to right, #A74CF2, #617BFB); */
 }
+.card-info {
+  padding: 2% 4%;
+}
 .Fitness-Card {
-  max-height: 140px;
-  max-width: 520px;
+  height: 140px;
+  max-width: 460px;
+  border-radius: 0;
+  margin-bottom: 4%;
+  margin-right: 2%;
+  margin-left: 2%;
 }
 .Fitness-Card-Info {
-  padding-left: 0;
-  padding-right: 75px;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 5px;
+  padding-top: 4%;
 }
-.Fitness-Card-Info h1{
+.Fitness-Card-Info span{
   font-size: 23px;
   color: white;
 }
 .Fitness-Card-Info p{
-  font-size: 11px;
+  font-size: 12px;
   color: white;
+  padding-right: 2%;
+  padding-bottom: 5px;
 }
 .Fitness-Add {
   display: block;
@@ -27,4 +38,10 @@
   margin-top: 100px;
   margin-bottom: 80px;
   height: 60px;
+}
+.Image {
+  padding-right: 3%;
+  padding-left: 1%;
+  max-height: 132px;
+  max-width: 132px;
 }
