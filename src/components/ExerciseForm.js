@@ -88,7 +88,6 @@ const ExerciseForm = ({ onChange, onSubmit, form, warning }) => {
           <Grid item xs={6} sm={6}>
             <TextField
               variant="outlined"
-              required
               fullWidth
               name="leftColor"
               margin="dense"
@@ -100,9 +99,8 @@ const ExerciseForm = ({ onChange, onSubmit, form, warning }) => {
           <Grid item xs={6} sm={6}>
             <TextField
               variant="outlined"
-              required
               fullWidth
-              id="lastName"
+              id="rightColor"
               name="rightColor"
               type="color" 
               margin="dense"

@@ -2,7 +2,6 @@ import React from 'react';
 
 import '../components/styles/Errors.css';
 import NotFoundImg from '../images/404.png';
-import { Grid , Container} from '@material-ui/core';
 
 const NotFound = () => (
   <div align="center" className="Error_Margin">
